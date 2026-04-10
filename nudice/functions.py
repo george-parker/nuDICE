@@ -10,7 +10,6 @@ MeV   = 1.0e6                  # [eV/MeV]
 
 # === Standard library imports ===@===@===@===@===@===@===
 
-import colorsys
 import math
 import os
 import time
@@ -19,15 +18,7 @@ import warnings
 
 # === Third-party imports ===@===@===@===@===@===@===
 
-import matplotlib.cm as cm
-import matplotlib.colors as colors
-import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import seaborn as sns
-import ipywidgets as widgets
-from IPython.display import clear_output, display, HTML
 from odeintw import odeintw
 from scipy.integrate import quad, quad_vec
 from scipy.linalg import expm

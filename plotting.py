@@ -55,7 +55,7 @@ plt.rcParams.update({
     "xtick.labelsize": 11,                          
     "ytick.labelsize": 11,                          
     "legend.title_fontsize": 8,                     
-    "text.latex.preamble": [r"\usepackage{amsmath}", r"\usepackage{upgreek}", r'\usepackage{amssymb}'],
+    "text.latex.preamble": r"\usepackage{amsmath}\usepackage{upgreek}\usepackage{amssymb}",
     "figure.dpi": 300,
 })
 
