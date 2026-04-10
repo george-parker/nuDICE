@@ -55,8 +55,7 @@ plt.rcParams.update({
     "xtick.labelsize": 11,                          
     "ytick.labelsize": 11,                          
     "legend.title_fontsize": 8,                     
-    "text.latex.preamble": r"\usepackage{amsmath}",  
-    "text.latex.preamble": r"\usepackage{upgreek}",
+    "text.latex.preamble": [r"\usepackage{amsmath}", r"\usepackage{upgreek}", r'\usepackage{amssymb}'],
     "figure.dpi": 300,
 })
 
@@ -459,7 +458,7 @@ def draw_double_dice_inlay(ax, colors, N, N_max=6, sub_w_in=4.5, sub_h_in=4.0,
             boxstyle="round,pad=0.30", linewidth=1.0,
             edgecolor="black", facecolor=colors[flavor], alpha=1.0, zorder=2))
         for dx, dy in pip_positions(N2 - k, s=s):
-            inset.plot(x + dx, y + dy, "ko", ms=3.5, zorder=3)
+            inset.plot(x + dx, y + dy, "ks", ms=3.5, zorder=3)
 
     # within-row arrows
     for pos_row, N_row, above in [(pos1, N1, False), (pos2, N2, True)]:
@@ -528,6 +527,7 @@ def dice_plot(e_edges, mass_array, flav_array, init_state, g_s, dist, masses):
     info = "\n".join([
         rf"$\mathtt{{g}} = \mathtt{{{g_s}}}$",
         rf"$\mathtt{{L}} = \mathtt{{{dist/km:g}}}$ km",
+        r"$\mathtt{Dirac}$"+" "+r"$\nu$"
     ])
 
     axes[0].text(0.0375, 0.94, info,transform=axes[0].transAxes, fontsize=8.5, 
@@ -673,7 +673,7 @@ def owl_plot(e_edges, owl, lind, g_s, dist, m1_):
     ax_top.legend(handles=handles,loc=(0.27,0.72), fontsize=10, frameon=False,
     ncol=1,columnspacing=1.2)
     plt.xlim(0,5)
-    plt.ylim(0,2.15)
+    plt.ylim(0,2.3)
 
     ax_top.set_ylabel("Flux [a.u.]", fontsize=11)
     ax_top.set_xlabel("Neutrino energy [MeV]", fontsize=11)
@@ -682,6 +682,7 @@ def owl_plot(e_edges, owl, lind, g_s, dist, m1_):
         rf"$\mathtt{{g}} = \mathtt{{{g_s}}}$",
         rf"$\mathtt{{L}} = \mathtt{{{dist/km:g}}}$ km",
         rf"$\mathtt{{m_1}} =$ " + mantissa(m1_)+ " eV",
+        r"$\mathtt{Dirac}$"+" "+r"$\nu$"
     ])
 
     ax_top.text(0.0375, 0.94, info,transform=ax_top.transAxes,
@@ -711,11 +712,14 @@ def maj_plot(e_edges, maj_flav, maj_mass, flux, g_s, dist, m1_):
 
     colors_flav = list(np.flip(sns.color_palette("RdGy", 6))[:3]) + sns.color_palette("PRGn", 6)[:3]
     colors_flav_ = [darken(c, 0.7) for c in colors_flav]
+    
+    decay_purple_inv = (0.7, 1.0, 0.2)
 
     info = "\n".join([
         rf"$\mathtt{{g}} =$ " + mantissa(g_s),
         rf"$\mathtt{{L}} = \mathtt{{{dist/km:g}}}$ km",
-        rf"$\mathtt{{m_1}} =$ " + mantissa(m1_)+ " eV",
+        rf"$\mathtt{{m_1}} =$ " + mantissa(m1_) + " eV",
+        r"$\mathtt{Maj.}$"+" "+r"$\nu\bullet/\bar{\nu}\hspace{0.85ex}\rule{0.85ex}{0.85ex}$"
     ])
 
     fig, ax = plt.subplots(figsize=(4.4, 3.1))
