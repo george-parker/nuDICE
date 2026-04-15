@@ -15,4 +15,4 @@ Moreover, the package includes the following helper functions:
 
 The package is based on the following publication:
 
-Joachim Kopp and George A. Parker, "Visible Neutrino Decay As An Open Quantum System", arXiv:2604.XXXX [hep-ph].
+Joachim Kopp and George A. Parker, "Visible Neutrino Decay As An Open Quantum System", [arXiv:2604.09776](https://arxiv.org/abs/2604.09776) [hep-ph].
